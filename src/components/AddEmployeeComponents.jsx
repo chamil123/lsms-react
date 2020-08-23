@@ -195,4 +195,4 @@ class AddEmployeeComponents extends Component {
     }
 }
 
-export default AddEmployeeCompo
+export default AddEmployeeComponents;

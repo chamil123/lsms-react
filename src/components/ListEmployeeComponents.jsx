@@ -119,9 +119,9 @@ class ListEmployeeComponents extends Component {
                                                                     <td>{customer.cusdob}</td>
                                                                     <td>{customer.cusemail}</td>
                                                                     <td>
-                                                                        <button onClick={() => this.getDataById(customer.id)} className="btn btn-info btn-sm" style={{ marginRight: 10 }}><i class="far fa-file"></i></button>
-                                                                        <button onClick={() => this.editCustomer(customer.id)} className="btn btn-warning btn-sm" style={{ marginRight: 10 }}><i class="fas fa-pencil-alt"></i></button>
-                                                                        <button onClick={() => this.editEmployee(customer.id)} className="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                                                        <button onClick={() => this.getDataById(customer.id)} className="btn btn-info btn-sm" style={{ marginRight: 10 }}><i className="far fa-file"></i></button>
+                                                                        <button onClick={() => this.editCustomer(customer.id)} className="btn btn-warning btn-sm" style={{ marginRight: 10 }}><i className="fas fa-pencil-alt"></i></button>
+                                                                        <button onClick={() => this.editEmployee(customer.id)} className="btn btn-danger btn-sm"><i className="fas fa-trash-alt"></i></button>
                                                                     </td>
                                                                 </tr>
                                                             )

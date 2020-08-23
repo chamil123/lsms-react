@@ -12,4 +12,8 @@ class EmployeeServices{
         return axios.get(CUSTOMER_API_BASE_URL+'/'+customerId);
     }
     updateCustomer(customer,customerId){
+        return axios.put(CUSTOMER_API_BASE_URL+'/'+customerId,customer);
+    }
     
+}
+export default new EmployeeServices()

@@ -52,7 +52,7 @@ class UpdateCustomerComponent extends Component {
         let customer = { cusfullname: this.state.cusfullname, cusNicNumber: this.state.cusNicNumber, cusdob: this.state.cusdob, cuscontactnumber: this.state.cuscontactnumber, cusemail: this.state.cusemail,cusage:25,cusaddress:this.state.cusaddress,cusstatus:1,createdat:'2020-07-25',updatedat:'2020-07-25' };
         console.log('customer=>' + JSON.stringify(customer));
         EmployeeServices.updateCustomer(customer,this.state.id).then(res => {
-            // this.props.history.push('/customer');
+            this.props.history.push('/customer');
         });
     }
     changeNameHandlter = (event) => {
@@ -215,4 +215,4 @@ class UpdateCustomerComponent extends Component {
     }
 }
 
-export default 
+export default UpdateCustomerComponent;
