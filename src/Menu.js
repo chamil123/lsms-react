@@ -5,9 +5,13 @@ class Menu extends Component {
         super(props)
 
         this.addCustomer = this.addCustomer.bind(this);
+        this.addSupplier = this.addSupplier.bind(this);
     }
     addCustomer() {
         this.props.history.push('/add-customer');
+    }
+    addSupplier() {
+        this.props.history.push('/add-supplier');
     }
     render() {
         return (
@@ -54,15 +58,20 @@ class Menu extends Component {
                                         </p>
                                     </a>
                                 </li> */}
+
                                 <li className="nav-item has-treeview">
+                                    
                                     <a href="#" className="nav-link">
+
                                         <i className="nav-icon fas fa-copy" />
-                                        <p>
-                                            Customer 
-              <i className="fas fa-angle-left right" />
-                                            <span className="badge badge-info right">6</span>
+                                        <p>Customer Management<i className="fas fa-angle-left right" />
+                                        <span className="badge badge-info right"></span>
                                         </p>
+
                                     </a>
+
+                                    
+
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
                                         <Link to="/customer"  className="nav-link">
@@ -80,6 +89,18 @@ class Menu extends Component {
                                             {/* </a> */}
                                             </Link>
                                         </li>
+
+                                        
+
+
+                                        
+                                        
+
+
+                                        
+
+
+
                                         {/* <li className="nav-item">
                                             <a href="pages/layout/boxed.html" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
@@ -112,57 +133,50 @@ class Menu extends Component {
                                         </li> */}
                                     </ul>
                                 </li>
-                                {/* <li className="nav-item has-treeview">
+
+
+                                <li className="nav-item has-treeview">
                                     <a href="#" className="nav-link">
                                         <i className="nav-icon fas fa-chart-pie" />
-                                        <p>
-                                            Charts
-              <i className="right fas fa-angle-left" />
+                                        <p>Supplier Management<i className="right fas fa-angle-left" />
                                         </p>
                                     </a>
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
                                             <a href="pages/charts/chartjs.html" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
-                                                <p>ChartJS</p>
+                                                <p>Add Supplier</p>
                                             </a>
                                         </li>
                                         <li className="nav-item">
                                             <a href="pages/charts/flot.html" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
-                                                <p>Flot</p>
+                                                <p>View Supplier</p>
                                             </a>
                                         </li>
-                                        <li className="nav-item">
-                                            <a href="pages/charts/inline.html" className="nav-link">
-                                                <i className="far fa-circle nav-icon" />
-                                                <p>Inline</p>
-                                            </a>
-                                        </li>
+                                       
                                     </ul>
-                                </li> */}
-                                {/* <li className="nav-item has-treeview">
+                                </li> 
+                                <li className="nav-item has-treeview">
                                     <a href="#" className="nav-link">
                                         <i className="nav-icon fas fa-tree" />
-                                        <p>
-                                            UI Elements
-              <i className="fas fa-angle-left right" />
+                                        <p>User Management<i className="fas fa-angle-left right" />
                                         </p>
                                     </a>
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
                                             <a href="pages/UI/general.html" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
-                                                <p>General</p>
+                                                <p>Add User</p>
                                             </a>
                                         </li>
                                         <li className="nav-item">
                                             <a href="pages/UI/icons.html" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
-                                                <p>Icons</p>
+                                                <p>View User</p>
                                             </a>
                                         </li>
-                                        <li className="nav-item">
+                                        {/* <li className="nav-item">
                                             <a href="pages/UI/buttons.html" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
                                                 <p>Buttons</p>
@@ -197,28 +211,26 @@ class Menu extends Component {
                                                 <i className="far fa-circle nav-icon" />
                                                 <p>Ribbons</p>
                                             </a>
-                                        </li>
+                                        </li> */}
                                     </ul>
-                                </li> */}
-                                {/* <li className="nav-item has-treeview">
+                                </li> 
+                                <li className="nav-item has-treeview">
                                     <a href="#" className="nav-link">
                                         <i className="nav-icon fas fa-edit" />
-                                        <p>
-                                            Forms
-              <i className="fas fa-angle-left right" />
+                                        <p>Property Management<i className="fas fa-angle-left right" />
                                         </p>
                                     </a>
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
                                             <a href="pages/forms/general.html" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
-                                                <p>General Elements</p>
+                                                <p>Add Property</p>
                                             </a>
                                         </li>
                                         <li className="nav-item">
                                             <a href="pages/forms/advanced.html" className="nav-link">
                                                 <i className="far fa-circle nav-icon" />
-                                                <p>Advanced Elements</p>
+                                                <p>View Property</p>
                                             </a>
                                         </li>
                                         <li className="nav-item">
@@ -238,9 +250,7 @@ class Menu extends Component {
                                 <li className="nav-item has-treeview">
                                     <a href="#" className="nav-link">
                                         <i className="nav-icon fas fa-table" />
-                                        <p>
-                                            Tables
-              <i className="fas fa-angle-left right" />
+                                        <p>Expense Management<i className="fas fa-angle-left right" />
                                         </p>
                                     </a>
                                     <ul className="nav nav-treeview">
@@ -264,6 +274,66 @@ class Menu extends Component {
                                         </li>
                                     </ul>
                                 </li>
+
+                                <li className="nav-item has-treeview">
+                                    <a href="#" className="nav-link">
+                                        <i className="nav-icon fas fa-table" />
+                                        <p>Agents & Sales Rep<i className="fas fa-angle-left right" />
+                                        </p>
+                                    </a>
+                                    <ul className="nav nav-treeview">
+                                        <li className="nav-item">
+                                            <a href="pages/tables/simple.html" className="nav-link">
+                                                <i className="far fa-circle nav-icon" />
+                                                <p>Add Agent & Sales Rep</p>
+                                            </a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a href="pages/tables/data.html" className="nav-link">
+                                                <i className="far fa-circle nav-icon" />
+                                                <p>View Sales Rep</p>
+                                            </a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a href="pages/tables/jsgrid.html" className="nav-link">
+                                                <i className="far fa-circle nav-icon" />
+                                                <p>View Agents</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> 
+
+                                <li className="nav-item has-treeview">
+                                    <a href="#" className="nav-link">
+                                        <i className="nav-icon fas fa-table" />
+                                        <p>Invoicing<i className="fas fa-angle-left right" />
+                                        </p>
+                                    </a>
+                                    <ul className="nav nav-treeview">
+                                        <li className="nav-item">
+                                            <a href="pages/tables/simple.html" className="nav-link">
+                                                <i className="far fa-circle nav-icon" />
+                                                <p>Make Invoice</p>
+                                            </a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a href="pages/tables/data.html" className="nav-link">
+                                                <i className="far fa-circle nav-icon" />
+                                                <p>View Invoice</p>
+                                            </a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a href="pages/tables/jsgrid.html" className="nav-link">
+                                                <i className="far fa-circle nav-icon" />
+                                                <p>View Agents</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>   
+
+
+
+
                                 <li className="nav-header">EXAMPLES</li>
                                 <li className="nav-item">
                                     <a href="pages/calendar.html" className="nav-link">
@@ -273,7 +343,7 @@ class Menu extends Component {
               <span className="badge badge-info right">2</span>
                                         </p>
                                     </a>
-                                </li> */}
+                                </li> 
 
 
 

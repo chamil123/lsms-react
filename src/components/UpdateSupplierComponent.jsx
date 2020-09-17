@@ -1,68 +1,91 @@
 import React, { Component } from 'react';
-import EmployeeServices from '../services/EmployeeServices';
+import SupplierServices from '../services/SupplierServices';
 
-class AddEmployeeComponents extends Component {
+class UpdateSupplierComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            cusfullname: '',
-            cusNicNumber: '',
-            cusdob: '',
-            cuscontactnumber: '',
-            cusemail: '',
-            cusage:'',
-            cusstatus:'',
-            createdat:'',
+
+            id:this.props.match.params.id ,
+            supfullname: '',
+            supofficenumber: '',
+            supmobilenumber: '',
+            supemail: '',
+            supaddress: '',
+            supremark:'',
+            supstatus:'',
             updatedat:'',
-            cusaddress:''
-
-
+            supcreateddate:'',
+           
         }
-        this.changeNameHandlter = this.changeNameHandlter.bind(this);
-        this.changeNICHandlter = this.changeNICHandlter.bind(this);
-        this.changeDateHandlter = this.changeDateHandlter.bind(this);
-        this.changeContactHandlter = this.changeContactHandlter.bind(this);
-        this.changeEmailtHandlter = this.changeEmailtHandlter.bind(this);
-        this.changeaddressHandlter = this.changeaddressHandlter.bind(this);
-        this.saveCustomer = this.saveCustomer.bind(this);
+        
 
+        this.changeNameHandlter = this.changeNameHandlter.bind(this);
+        this.changeOfficeandlter = this.changeOfficeandlter.bind(this);
+        this.changeMobileHandlter = this.changeMobileHandlter.bind(this);
+        this.changeEmailHandlter = this.changeEmailHandlter.bind(this);
+        this.changeAddressHandlter = this.changeAddressHandlter.bind(this);
+        this.changeRemarkHandlter = this.changeRemarkHandlter.bind(this);
+        this.updateSupplier = this.updateSupplier.bind(this);
+
+
+        
     }
-    saveCustomer = (e) => {
+    componentDidMount(){
+        SupplierServices.getSupplierById(this.state.id)
+        .then((res)=>{
+            let supplier=res.data;
+            this.setState({
+                supfullname:supplier.supfullname,
+                supofficenumber:supplier.supofficenumber,
+                supmobilenumber:supplier.supmobilenumber,
+                supemail:supplier.supemail,
+                supaddress:supplier.supaddress,
+                supremark:supplier.supremark,
+                supcreateddate:supplier.supcreateddate,
+                updatedat:supplier.updatedat,
+                supstatus:supplier.supstatus,
+             
+            
+            });
+        });
+    }
+    updateSupplier = (e) => {
         e.preventDefault();
-        let customer = { cusfullname: this.state.cusfullname, cusNicNumber: this.state.cusNicNumber, cusdob: this.state.cusdob, cuscontactnumber: this.state.cuscontactnumber, cusemail: this.state.cusemail,cusage:25,cusaddress:this.state.cusaddress,cusstatus:1,createdat:'2020-07-25',updatedat:'2020-07-25'};
-        console.log('customer=>' + JSON.stringify(customer));
-        EmployeeServices.createCustomer(customer).then(res => {
-            this.props.history.push('/customer');
+        let supplier = { supfullname: this.state.supfullname, supofficenumber: this.state.supofficenumber, supmobilenumber: this.state.supmobilenumber, supemail: this.state.supemail, supaddress: this.state.supaddress,supstatus:1,supcreateddate:'2020-09-16',updatedat:'2020-09-16'};
+        console.log('supplier=>' + JSON.stringify(supplier));
+        SupplierServices.updateSupplier(supplier,this.state.id).then(res => {
+            this.props.history.push('/supplier');
         });
     }
     changeNameHandlter = (event) => {
         this.setState({
-            cusfullname: event.target.value
+            supfullname: event.target.value
         });
     }
-    changeNICHandlter = (event) => {
+    changeOfficeHandlter = (event) => {
         this.setState({
-            cusNicNumber: event.target.value
+            supofficenumber: event.target.value
         });
     }
-    changeDateHandlter = (event) => {
+    changeMobileHandlter = (event) => {
         this.setState({
-            cusdob: event.target.value
+            supmobilenumber: event.target.value
         });
     }
-    changeContactHandlter = (event) => {
+    changeEmailHandlter = (event) => {
         this.setState({
-            cuscontactnumber: event.target.value
+            supemail: event.target.value
         });
     }
-    changeEmailtHandlter = (event) => {
+    changeAddressHandlter = (event) => {
         this.setState({
-            cusemail: event.target.value
+            supaddress: event.target.value
         });
     }
-    changeaddressHandlter=(event)=>{
+    changeRemarkHandlter=(event)=>{
         this.setState({
-            cusaddress: event.target.value
+            supremark: event.target.value
         });
     }
     render() {
@@ -75,7 +98,7 @@ class AddEmployeeComponents extends Component {
                             <div className="container-fluid">
                                 <div className="row mb-2">
                                     <div className="col-sm-6">
-                                        <h4>Add Customer</h4>
+                                        <h4>Update Supplier</h4>
                                     </div>{/* /.col */}
                                     <div className="col-sm-6">
                                         <ol className="breadcrumb float-sm-right">
@@ -110,20 +133,18 @@ class AddEmployeeComponents extends Component {
                                                 {/* form start */}
 
                                                 <div className="card-body">
-                                                    <div className="form-group">
-                                                        <label htmlFor="exampleInputEmail1">Customer Name</label>
-                                                        <input type="text" className="form-control" id="cusfullname" placeholder="Enter Full name" value={this.state.cusfullname} onChange={this.changeNameHandlter} />
+                                                <div className="form-group">
+                                                        <label htmlFor="exampleInputEmail1">Supplier Name</label>
+                                                        <input type="text" className="form-control" id="supfullname" placeholder="Enter Supplier Full name" value={this.state.supfullname} onChange={this.changeNameHandlter} />
                                                     </div>
                                                     <div className="form-group">
-                                                        <label htmlFor="exampleInputEmail1">NIC Number</label>
-                                                        <input type="text" className="form-control" id="cusNicNumber" placeholder="Enter NIC number" value={this.state.cusNicNumber} onChange={this.changeNICHandlter} />
+                                                        <label htmlFor="exampleInputEmail1">Supplier Office Number</label>
+                                                        <input type="number" className="form-control" id="supofficenumber" placeholder="Enter Office number" value={this.state.supofficenumber} onChange={this.changeOfficeHandlter} />
                                                     </div>
                                                     <div className="form-group">
-                                                        <label htmlFor="exampleInputEmail1">Date of birth</label>
-                                                        <input type="date" className="form-control" id="cusdob" value={this.state.cusdob} onChange={this.changeDateHandlter} />
+                                                        <label htmlFor="exampleInputEmail1">Supplier Mobile Number</label>
+                                                        <input type="number" className="form-control" id="supmobilenumber" placeholder="Enter Mobile number" value={this.state.supmobilenumber} onChange={this.changeMobileHandlter} />
                                                     </div>
-
-
 
                                                 </div>
                                                 {/* /.card-body */}
@@ -144,17 +165,17 @@ class AddEmployeeComponents extends Component {
                                                 {/* /.card-header */}
                                                 <div className="card-body">
 
-                                                    <div className="form-group">
-                                                        <label htmlFor="exampleInputEmail1">Contact number</label>
-                                                        <input type="number" className="form-control" id="cuscontactnumber" placeholder="Enter Contact number" value={this.state.cuscontactnumber} onChange={this.changeContactHandlter} />
+                                                <div className="form-group">
+                                                        <label htmlFor="exampleInputEmail1">Supplier Email</label>
+                                                        <input type="email" className="form-control" id="supemail" placeholder="Enter Email" value={this.state.supemail} onChange={this.changeEmailHandlter} />
                                                     </div>
                                                     <div className="form-group">
-                                                        <label htmlFor="exampleInputEmail1">Email</label>
-                                                        <input type="text" className="form-control" id="cusemail" placeholder="Enter email" value={this.state.cusemail} onChange={this.changeEmailtHandlter} />
+                                                        <label htmlFor="exampleInputEmail1">Supplier Address</label>
+                                                        <input type="text" className="form-control" id="supaddress" placeholder="Enter Address" value={this.state.supaddress} onChange={this.changeAddressHandlter} />
                                                     </div>
                                                     <div className="form-group">
-                                                        <label htmlFor="exampleInputEmail1">Address</label>
-                                                        <textarea type="text" className="form-control" id="cusaddress" placeholder="Enter Address" value={this.state.cusaddress} onChange={this.changeaddressHandlter}/>
+                                                        <label htmlFor="exampleInputEmail1">Supplier Remark</label>
+                                                        <textarea type="text" className="form-control" id="supremark" placeholder="Enter Remark" value={this.state.supremark} onChange={this.changeRemarkHandlter}/>
                                                         {/* <input  /> */}
                                                     </div>
 
@@ -174,8 +195,8 @@ class AddEmployeeComponents extends Component {
                                     </div>
 
                                     {/* <div className="card-footer"> */}
-                                    <button type="submit" className="btn btn-success" onClick={this.saveCustomer}>Add customer</button>
-                                        
+                                    <button type="submit" className="btn btn-warning" onClick={this.updateSupplier}>Update Supplier</button>
+
                                     {/* </div> */}
 
 
@@ -195,4 +216,4 @@ class AddEmployeeComponents extends Component {
     }
 }
 
-export default AddEmployeeComponents;
+export default UpdateSupplierComponent;
